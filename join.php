@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>개발자 커뮤니티</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -38,7 +38,7 @@
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/note.png);">
         <div class="bradcumbContent">
             <p>See what’s new</p>
-            <h2>로그인</h2>
+            <h2>회원가입</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
@@ -49,20 +49,39 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <div class="login-content">
-                        <h3>Welcome Back</h3>
+                        <h3>회원가입 정보 입력</h3>
                         <!-- Login Form -->
                         <div class="login-form">
-                            <form action="_login.php" method="post">
+                            <form action="_join.php" method="post">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">이메일 주소를 입력해주세요.</label>
-                                    <input name="id" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail">
+                                    <!--class="text-danger" : 빨간색-->
+                                    <label for="exampleInputEmail1" class="text-danger">* 이메일 주소</label>
+                                    <input name="id" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="* Enter Your E-mail">
                                     <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">비밀번호를 입력해주세요.</label>
-                                    <input name="pw" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <label for="exampleInputPassword1"class="text-danger">* 비밀번호</label>
+                                    <input name="pw" type="password" class="form-control" id="exampleInputPassword1" placeholder="* Enter Your Password">
                                 </div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1"class="text-danger">* 비밀번호 확인</label>
+                                    <input name="pwc" type="password" class="form-control" id="exampleInputPassword1" placeholder="* Enter Your One More Password">
+                                </div>
+                                <!--name-->
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1"class="text-danger">* 이름</label>
+                                    <input name="name" type="text" class="form-control" placeholder="* Enter Your Name">
+                                </div>
+
+                                <hr>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">주소</label>
+                                    <input name="address" type="text" class="form-control" placeholder="Enter Your Address">
+                                </div>
+
+                                <button type="submit" class="btn oneMusic-btn mt-30">Join</button>
                             </form>
                         </div>
                     </div>

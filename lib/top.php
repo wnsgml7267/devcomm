@@ -30,7 +30,7 @@
                                     <li><a href="albums-store.html">프로젝트</a></li>
                                     
                                     <li><a href="event.html">스터디</a></li>
-                                    <li><a href="blog.html">QnA</a></li>
+                                    <li><a href="bbs.php">QnA</a></li>
                                     <li><a href="contact.html">채팅방</a></li>
                                 </ul>
 
@@ -39,9 +39,13 @@
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
                                         <?php if(isset($_SESSION['id'])) { ?>
+                                            <a href="#"><?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></a>
+                                            <a> / </a>
                                             <a href="_logout.php" id="loginBtn">로그아웃</a>
                                         <?php } else { ?>
-                                            <a href="login.php" id="loginBtn">로그인 / 회원가입</a>
+                                            <a href="login.php" id="loginBtn">로그인</a>
+                                            <a> / </a>
+                                            <a href="join.php" id="loginBtn">회원가입</a>
                                         <?php } ?>
                                     </div>
 
