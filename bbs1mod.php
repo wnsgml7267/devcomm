@@ -46,7 +46,7 @@
                 <div class="col-12">
                     <div class="section-heading white">
                         <p>See what’s new</p>
-                        <h2>글 작성</h2>
+                        <h2>글수정하기</h2>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,20 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input name="category" type="text" class="form-control" placeholder="카테고리를 작성해주세요." value="<?=$mod['category'];?>">
+                                        <div class="form-control">카테고리를 선택해주세요.
+                                            <select name="category">
+                                                <option value="Python">Python</option>
+                                                <option value="Java">Java</option>
+                                                <option value="Javascript">Javascript</option>
+                                                <option value="C">C</option>
+                                                <option value="C++">C++</option>
+                                                <option value="C#">C#</option>
+                                                <option value="Kotlin">Kotlin</option>
+                                                <option value="Ruby">Ruby</option>
+                                                <option value="Go">Go</option>
+                                                <option value="Swift">Swift</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
