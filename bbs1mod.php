@@ -17,6 +17,29 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Style <select> -->
+    <style>
+        select {
+            width: 100px;
+            font-family: inherit;
+            background: url(./img/select-img/arrow.png) no-repeat 95% 50%;
+            color: #FFF;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 0px solid #FFF;
+            border-radius: 0px;
+        }
+        select option {
+            color: #000;
+        }
+
+        select::-ms-expand {
+            /* for IE 11 */
+            display: none;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Preloader -->
