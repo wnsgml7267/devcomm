@@ -29,7 +29,7 @@
                                     <li><a href="index.php">홈</a></li>
                                     <li><a href="albums-store.html">프로젝트</a></li>
                                     
-                                    <li><a href="event.html">스터디</a></li>
+                                    <li><a href="study.php">스터디</a></li>
                                     <li><a href="bbs.php">QnA</a></li>
                                     <li><a href="contact.html">채팅방</a></li>
                                 </ul>

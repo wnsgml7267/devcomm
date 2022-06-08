@@ -15,6 +15,9 @@
 		require('_loginok.php');
 		echo "<script>alert('로그인 완료!');location.href='index.php'</script>";
 	} else {
+		session_unset();
+		session_destroy();
+		session_start();
 		echo "<script>alert('로그인 실패! 아이디나 비밀번호를 확인해주세요.');location.href='login.php'</script>"; 
 	}
 ?>
