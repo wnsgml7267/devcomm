@@ -86,6 +86,8 @@
                                         } else {
                                 ?>
                                         <button class="ml-5 btn btn-secondary" onclick="location.href='study1apply.php?no=<?=$study['no'];?>'"> 신청하기 </button>
+                                        
+                                        <button class="ml-5 btn btn-secondary" name='apply' value='$cancel' onclick="location.href='study1cancel.php?no=<?=$study['no'];?>'"> 신청취소 </button>
                                 <?php
                                       }
                                     }

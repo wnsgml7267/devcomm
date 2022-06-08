@@ -69,7 +69,7 @@
                 <div class="col-12">
                     <div class="section-heading white">
                         <p>See what’s new</p>
-                        <h2>신청하기</h2>
+                        <h2>신청취소</h2>
                     </div>
                 </div>
             </div>
@@ -77,42 +77,35 @@
             <div class="row">
                 <div class="col-12">
 
-                    <?php foreach($result as $ap) { ?>
+                    <?php foreach($result as $cancel) { ?>
 
                     <!-- Contact Form Area -->
                     <div class="contact-form-area">
-                        <form action="_study1apply.php" method="post">
+                        <form action="_study1cancel.php" method="post">
                             <div class="row">
 
                                 <input name="no" type="hidden" value="<?=$no;?>">
-
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <p class="form-control" name="apply" value= "<?=$ap['apply'];?>" > 현재인원 : <a href="#"> <?=$ap['apply'];?></a></p>
-                                        <p class="form-control" name="recruit" value = "<?=$ap['recruit'];?>" >최대인원 : <a href="#"> <?=$ap['recruit'];?></a></p>
-                                        <div class="form-control">신청 인원 : 
+                                        <p class="form-control" name="apply" value= "<?=$cancel['apply'];?>" >현재인원 : <a href="#"> <?=$cancel['apply'];?></a></p>
+                                        <p class="form-control" name="recruit" value= "<?=$ap['recruit'];?>" >최대인원 : <a href="#"> <?=$cancel['recruit'];?></a></p>
+                                        <div class="form-control">신청취소 인원 : 
                                             <select name="apply">
-                                                <?php if ($ap['recruit'] == $ap['apply']) { ?>
-                                                        <?= $apl = $ap['apply'];?>
-
+                                                <?php if ($cancel['apply'] == 1) { ?>
+                                                    <?= $can = $cancel['apply'];?>    
                                                 <?php } else { ?>
-                                                            <?= $apl = $ap['apply']+1;?>
+                                                    <?= $can = $cancel['apply']-1;?>
                                                 <?php } ?>
-                                                <option value="<?=$apl?>">1</option>
+                                                <option value="<?=$can?>">1</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <?php if ($ap['recruit'] == $ap['apply']) { ?>
-                                    <div class="col-12 text-center">
-                                        <button class="btn oneMusic-btn mt-30" type="submit" disabled>마감 <i class="fa fa-angle-double-right">    </i></button>
-                                    </div>
-                                <?php } else { ?>
+
                                 <div class="col-12 text-center">
-                                    <button class="btn oneMusic-btn mt-30" type="submit">신청 <i class="fa fa-angle-double-right"></i></button>
+                                    <button class="btn oneMusic-btn mt-30" type="submit">신청취소 <i class="fa fa-angle-double-right"></i></button>
                                 </div>
-                                <?php } ?>
                             </div>
                         </form>
                     </div>
