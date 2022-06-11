@@ -23,6 +23,7 @@
             background-color: #000000;
         }
     </style>
+
 </head>
 <body>
     <!-- Preloader -->
@@ -39,18 +40,18 @@
     <?php require('lib/top.php'); ?>
     <!-- ##### Header Area End ##### -->
 
-    <?php require('_bbs1page.php'); ?>
+    <?php require('_projectpage.php'); ?>
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/note.png);">
         <div class="bradcumbContent">
             <p>See what’s new</p>
-            <h2>QnA</h2>
+            <h2>프로젝트</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### BBS Area Start ##### -->
+    <!-- ##### project Area Start ##### -->
     <div class="blog-area section-padding-100">
         <div class="container">
             <div class="row">
@@ -59,47 +60,56 @@
                     <?php
                         if (isset($_SESSION['id'])) {
                     ?>
-                        <button class="btn btn-secondary" onclick="location.href='bbs1write.php'">글쓰기</button>
+                        <button class="btn btn-secondary" onclick="location.href='projectwrite.php'">프로젝트 생성</button>
                         <hr>
                     <?php
                         }
 
-                        foreach($result as $bbs) { 
+                        foreach($result as $project) { 
                     ?>
 
                     <!-- Single Post Start -->
                     <div class="single-blog-post mb-30 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- BBS Content -->
+                        <!-- project Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
                             <div class="post-meta d-flex mb-30">
-                                <?php if($bbs['img_file']) { ?>
-                                    <img class="mr-5" style="height:50px;" src="bbs_img/<?=$bbs['img_file'];?>" alt="bbs image"></a>
+                                <?php if($project['img_file']) { ?>
+                                    <img class="mr-5" style="height:50px;" src="project_img/<?=$project['img_file'];?>" alt="project image"></a>
                                 <?php } else { ?>
-                                    <img class="mr-5" style="height:50px;" src="bbs_img/noimage.png" alt="no bbs image"></a>
+                                    <img class="mr-5" style="height:50px;" src="project_img/noimage.png" alt="no project image"></a>
                                 <?php } ?>
-                                <a href="bbsview.php?no=<?=$bbs['no'];?>&current_page=<?=$current_page;?>" class="pr-5 post-title"><?=$bbs['title'];?></a>
-                                <p class="post-author">작성자 : <a href="#"> <?=$bbs['name'];?></a></p>
-                                <p class="tags">카테고리 : <a href="#"> <?=$bbs['category'];?></a></p>
+                                <a href="projectview.php?no=<?=$project['no'];?>&current_page=<?=$current_page;?>" class="pr-5 post-title"><?=$project['title'];?></a>
+                                <p class="post-author">작성자 : <a href="#"> <?=$project['name'];?></a></p>
+                                <p class="tags">개발언어 : <a href="#"> <?=$project['category'];?></a></p>
+                                <p class="tags">모집군 : <a href="#"> <?=$project['field'];?></a></p>
+                                
                             </div>
-
                                 <!-- 수정, 삭제 버튼 -->
                                 <?php 
                                     if(isset($_SESSION['id'])) {
-                                        if($_SESSION['id'] == $bbs['id']) { 
+                                        if($_SESSION['id'] == $project['id']) { 
                                 ?>
                                             <div style="float:left">
-                                                <button class="ml-5 btn btn-secondary blackbtn" onclick="location.href='bbs1mod.php?no=<?=$bbs['no'];?>'">수정</button>
-                                                <button class="ml-1 btn btn-secondary" onclick="location.href='_bbs1delete.php?no=<?=$bbs['no'];?>'">삭제</button>
+                                                <button class="ml-5 btn btn-secondary blackbtn" onclick="location.href='projectmod.php?no=<?=$project['no'];?>'">수정</button>
+                                                <button class="ml-1 btn btn-secondary" onclick="location.href='_projectdelete.php?no=<?=$project['no'];?>'">삭제</button>
                                             </div>
+                                            
                                 <?php 
+                                        } else {
+                                ?>
+                                            <div style="float:right">
+                                                <button class="ml-5 btn btn-secondary blackbtn" onclick="location.href='#'">참여하기</button>
+                                                <button class="ml-1 btn btn-secondary" onclick="location.href='#'">후원하기</button>
+                                            </div>
+                                <?php
                                         }
                                     }                            
                                 ?>
                         </div>
                     </div>
-                    <!-- Single Post End -->                    
-
+                    
+                    <!-- Single Post End -->
                     <?php
                         }
                     ?>
@@ -109,22 +119,22 @@
                     <!-- Pagination -->
                     <div class="oneMusic-pagination-area wow fadeInUp" data-wow-delay="300ms">
                         <nav>
-                        <ul class="pagination">
-                                <li class="page-item active"><a class="page-link" href="bbs.php?current_page=1"><<</a></li>
+                            <ul class="pagination">
+                                <li class="page-item active"><a class="page-link" href="project.php?current_page=1"><<</a></li>
                                 
                                 <?php if ($current_page > 1) { ?>
-                                    <li class="page-item active"><a class="page-link" href="bbs.php?current_page=<?=$prev_page;?>"><</a></li>
+                                    <li class="page-item active"><a class="page-link" href="project.php?current_page=<?=$prev_page;?>"><</a></li>
                                 <?php } else { ?>
                                     <li class="page-item active"><a class="page-link" href="#"><</a></li>
                                 <?php } ?>
                                 <p>현 페이지 <?=$current_page;?> / 총 페이지 <?=$end_page;?>&nbsp;&nbsp;&nbsp;</p>
                                 <?php if ($current_page < $end_page) { ?>
-                                    <li class="page-item active"><a class="page-link" href="bbs.php?current_page=<?=$next_page;?>">></a></li>
+                                    <li class="page-item active"><a class="page-link" href="project.php?current_page=<?=$next_page;?>">></a></li>
                                 <?php } else { ?>
                                     <li class="page-item active"><a class="page-link" href="#">></a></li>
                                 <?php } ?>
 
-                                <li class="page-item active"><a class="page-link" href="bbs.php?current_page=<?=$end_page;?>">>></a></li>
+                                <li class="page-item active"><a class="page-link" href="project.php?current_page=<?=$end_page;?>">>></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -140,29 +150,21 @@
                             </div>
                             <div class="widget-content">
                                 <ul>
-                                    <li><a href="#">Python</a></li>
-                                    <li><a href="#">Java</a></li>
-                                    <li><a href="#">Javascript</a></li>
-                                    <li><a href="#">C</a></li>
-                                    <li><a href="#">C++</a></li>
-                                    <li><a href="#">C#</a></li>
-                                    <li><a href="#">Kotlin</a></li>
-                                    <li><a href="#">Ruby</a></li>
-                                    <li><a href="#">Go</a></li>
-                                    <li><a href="#">Swift</a></li>
+                                    <li><a href="#">서버개발자</a></li>
+                                    <li><a href="#">웹개발자</a></li>
+                                    <li><a href="#">안드로이드개발자</a></li>
+                                    <li><a href="#">IOS개발자</a></li>
+                                    <li><a href="#">머신러닝</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
-                
             </div>
         </div>
     </div>
-    <!-- ##### BBS Area End ##### -->
+    <!-- ##### project Area End ##### -->
 
     <!-- ##### Contact Area Start ##### 
     <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">

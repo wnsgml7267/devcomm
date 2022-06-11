@@ -17,6 +17,12 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Change the color of the button to black -->
+    <style>
+        .blackbtn {
+            background-color: #000000;
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -74,29 +80,28 @@
                                 <p class="post-date">작성일 :  <a href="#"> <?=$study['reg_date'];?></a></p>
                                 <p class="post-date">참여인원 : <a href="#"> <?=$study['apply'];?></a> </p>
                                 <p class="post-date">모집인원 : <a href="#"> <?=$study['recruit'];?></a> </p>
-                                
-                                <!-- 수정, 삭제 버튼 -->
+                            </div>
+                            <!-- 수정, 삭제 버튼 -->
                                 <?php 
                                     if(isset($_SESSION['id'])) {
                                         if($_SESSION['id'] == $study['id']) { 
                                 ?>
-                                            <button class="ml-5 btn btn-secondary" onclick="location.href='study1mod.php?no=<?=$study['no'];?>'">수정</button>
+                                        <div style="float:left">
+                                            <button class="ml-5 btn btn-secondary blackbtn" onclick="location.href='study1mod.php?no=<?=$study['no'];?>'">수정</button>
                                             <button class="ml-1 btn btn-secondary" onclick="location.href='_study1delete.php?no=<?=$study['no'];?>'">삭제</button>
+                                        </div>
                                 <?php 
                                         } else {
                                 ?>
-                                        <button class="ml-5 btn btn-secondary" onclick="location.href='study1apply.php?no=<?=$study['no'];?>'"> 신청하기 </button>
-                                        
-                                        <button class="ml-5 btn btn-secondary" name='apply' value='$cancel' onclick="location.href='study1cancel.php?no=<?=$study['no'];?>'"> 신청취소 </button>
+                                        <div style="float:right">
+                                            <button class="ml-5 btn btn-secondary blackbtn" onclick="location.href='study1apply.php?no=<?=$study['no'];?>'">신청하기</button>
+                                            
+                                            <button class="ml-1 btn btn-secondary" name='apply' value='$cancel' onclick="location.href='study1cancel.php?no=<?=$study['no'];?>'">신청취소</button>
+                                        </div>
                                 <?php
                                       }
                                     }
                                 ?> 
-                         
-
-                            </div>
-
-
                         </div>
                     </div>
                     <!-- Single Post End -->                    
@@ -110,23 +115,22 @@
                     <!-- Pagination -->
                     <div class="oneMusic-pagination-area wow fadeInUp" data-wow-delay="300ms">
                         <nav>
-                            <ul class="pagination">
-                                <li class="page-item active"><a class="page-link" href="study.php?current_page=1">&laquo;</a></li>
+                        <ul class="pagination">
+                                <li class="page-item active"><a class="page-link" href="study.php?current_page=1"><<</a></li>
                                 
                                 <?php if ($current_page > 1) { ?>
-                                    <li class="page-item active"><a class="page-link" href="study.php?current_page=<?=$prev_page;?>">앞</a></li>
+                                    <li class="page-item active"><a class="page-link" href="study.php?current_page=<?=$prev_page;?>"><</a></li>
                                 <?php } else { ?>
-                                    <li class="page-item active"><a class="page-link" href="#">앞</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#"><</a></li>
                                 <?php } ?>
-
+                                <p>현 페이지 <?=$current_page;?> / 총 페이지 <?=$end_page;?>&nbsp;&nbsp;&nbsp;</p>
                                 <?php if ($current_page < $end_page) { ?>
-                                    <li class="page-item active"><a class="page-link" href="study.php?current_page=<?=$next_page;?>">뒤</a></li>
+                                    <li class="page-item active"><a class="page-link" href="study.php?current_page=<?=$next_page;?>">></a></li>
                                 <?php } else { ?>
-                                    <li class="page-item active"><a class="page-link" href="#">뒤</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">></a></li>
                                 <?php } ?>
 
-                                <li class="page-item active"><a class="page-link" href="study.php?current_page=<?=$end_page;?>">&raquo;</a></li>
-                            <p>현 페이지 <?=$current_page;?> / 총 페이지 <?=$end_page;?></p>
+                                <li class="page-item active"><a class="page-link" href="study.php?current_page=<?=$end_page;?>">>></a></li>
                             </ul>
                         </nav>
                     </div>
