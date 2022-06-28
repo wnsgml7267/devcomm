@@ -37,7 +37,7 @@
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
                                         <?php if(isset($_SESSION['id'])) { ?>
-                                            <a href="#"><?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></a>
+                                            <a href="info.php"><?php if(isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></a>
                                             <a> / </a>
                                             <a href="_logout.php" id="loginBtn">로그아웃</a>
                                         <?php } else { ?>
